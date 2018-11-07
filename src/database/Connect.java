@@ -6,7 +6,7 @@ public class Connect {
 	static final String connString = "jdbc:mysql://localhost:3306/";
 	static final String database = "OurHotel";
 	static final String timezoneFix = "?useLegacyDatetimeCode=false&serverTimezone=Europe/Stockholm";
-	static final String password = "asdasdasd";
+	static final String password = "asdasd";
 	private Connection con = null;
 
 	public static Connection getConnection() {
@@ -51,5 +51,30 @@ public class Connect {
 			e1.printStackTrace();
 		}
 		return state = -1;
+	}
+
+	public String registerGuest(String fname, String lname, String personalNumber, String phoneNumber,
+			String emailAddress, String apartmentNumber, Connection con) {
+
+		String query = "insert into hyresgaster(firstName,lastname,personNumber,phone_number,email,ApartmentNumber) values (?,?,?,?,?,?)";
+		String state;
+
+		try {
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setString(1, fname);
+			statement.setString(2, lname);
+			statement.setString(3, personalNumber);
+			statement.setString(4, phoneNumber);
+			statement.setString(5, emailAddress);
+			statement.setString(6, apartmentNumber);
+
+			statement.execute();
+			return state = "ok";
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return state = "notok";
+		}
+
 	}
 }

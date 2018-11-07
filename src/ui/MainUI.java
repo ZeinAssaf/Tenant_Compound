@@ -8,7 +8,6 @@ public class MainUI {
 	public static void main(String[] args) {
 		Login loginView= new Login();
 		loginView.setVisible(true);
-
 	}
 
 }
