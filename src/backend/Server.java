@@ -53,6 +53,7 @@ public class Server {
 				InputStreamReader input = new InputStreamReader(socket.getInputStream());
 				BufferedReader reader = new BufferedReader(input);
 				btnPressed = reader.readLine();
+				ObjectOutputStream objOut=new ObjectOutputStream(socket.getOutputStream());
 
 				switch (btnPressed) {
 				case "spara":
@@ -69,10 +70,14 @@ public class Server {
 					writer.println(registered);
 					break;
 				case "data":
-					String[][] guestsList=new String[7][];
+					String[][] guestsList=new String[7][10];
 					guestsList=connect.printGuestsList();
-					ObjectOutputStream objOut=new ObjectOutputStream(socket.getOutputStream());
 					objOut.writeObject(guestsList);
+					break;
+				case "apartments":
+					String[][] apartments=new String[7][10];
+					apartments=connect.printApartments();
+					objOut.writeObject(apartments);
 					break;
 
 				default:

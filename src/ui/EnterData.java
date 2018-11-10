@@ -198,13 +198,6 @@ public class EnterData extends JFrame {
 					Object resp = inputStream.readObject();
 
 					String[][] guestsList = (String[][]) resp;
-					/*
-					for (ArrayList<String> guest : guestsList) {
-						for (String value : guest) {
-							System.out.println(value);
-						}
-					}*/
-
 					GuestsList guestTable = new GuestsList(guestsList);
 					guestTable.setVisible(true);
 
@@ -216,6 +209,31 @@ public class EnterData extends JFrame {
 		});
 		btnSkrivUtHyresgster.setBounds(696, 60, 184, 29);
 		mainframe.add(btnSkrivUtHyresgster);
+		
+		JButton printApartments = new JButton("Skriv ut l\u00E4genheter");
+		printApartments.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				try (Socket socket = new Socket("localhost", 2277);
+						OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
+						PrintWriter writer = new PrintWriter(out, true);) {
+					writer.println("apartments");
+					ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+					Object resp = inputStream.readObject();
+
+					String[][] apartments = (String[][]) resp;
+					Apartmetns flats = new Apartmetns(apartments);
+					flats.setVisible(true);
+
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+
+			
+			}
+		});
+		printApartments.setBounds(924, 60, 184, 29);
+		mainframe.add(printApartments);
 
 	}
 }

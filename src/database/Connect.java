@@ -7,7 +7,7 @@ public class Connect {
 	static final String connString = "jdbc:mysql://localhost:3306/";
 	static final String database = "OurHotel";
 	static final String timezoneFix = "?useLegacyDatetimeCode=false&serverTimezone=Europe/Stockholm";
-	static final String password = "asdasd";
+	static final String password = "Happy4sure";
 	
 
 	public static Connection getConnection() {
@@ -79,14 +79,10 @@ public class Connect {
 
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
+
 	public String[][] printGuestsList() {
 
 		String query = "select * from hyresgaster";
-		// two demensional arraylist
 		String[][] guests = new String[7][10];
 		try (Connection conn = Connect.getConnection(); PreparedStatement pst = conn.prepareStatement(query);) {
 			ResultSet rs = pst.executeQuery();
@@ -94,6 +90,28 @@ public class Connect {
 
 				for (int i = 0; i < guests.length; i++) {
 					for (int j = 0; j < 7; j++) {
+						guests[i][j] = rs.getString(j + 1);
+					}
+				}
+			}
+			return guests;
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return guests;
+	}
+
+	public String[][] printApartments() {
+
+		String query = "SELECT * FROM ourhotel.apartments";
+		String[][] guests = new String[9][20];
+		try (Connection conn = Connect.getConnection();
+				PreparedStatement pst = conn.prepareStatement(query);) {
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+
+				for (int i = 0; i < guests.length; i++) {
+					for (int j = 0; j < 8; j++) {
 						guests[i][j] = rs.getString(j + 1);
 					}
 				}

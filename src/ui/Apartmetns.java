@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 
-public class GuestsList extends JFrame {
+public class Apartmetns extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -36,7 +36,7 @@ public class GuestsList extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GuestsList(String[][] columns) {
+	public Apartmetns(String[][] columns) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 758, 514);
 		contentPane = new JPanel();
@@ -46,7 +46,7 @@ public class GuestsList extends JFrame {
 		
 		table = new JTable();
 		contentPane.add(table, BorderLayout.CENTER);
-		String []rows= {"id","förnamn","efternamn","personnummer","telefonnummer","e-adress","lägenhetsnummer"};
+		String []rows= {"id","storlek","rum","hyra","balkong","plan","adress","postnummer","stad"};
 		//String[][] columns= {};
 		DefaultTableModel dtm= new DefaultTableModel(columns, rows);
 		//columns=dataBaseData.toArray(columns);
