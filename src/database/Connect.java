@@ -1,6 +1,7 @@
 package database;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Connect {
 	static final String connString = "jdbc:mysql://localhost:3306/";
@@ -76,5 +77,31 @@ public class Connect {
 			return state = "notok";
 		}
 
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String[][] printGuestsList() {
+
+		String query = "select * from hyresgaster";
+		// two demensional arraylist
+		String[][] guests = new String[7][10];
+		try (Connection conn = Connect.getConnection(); PreparedStatement pst = conn.prepareStatement(query);) {
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+
+				for (int i = 0; i < guests.length; i++) {
+					for (int j = 0; j < 7; j++) {
+						guests[i][j] = rs.getString(j + 1);
+					}
+				}
+			}
+			return guests;
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return guests;
 	}
 }
