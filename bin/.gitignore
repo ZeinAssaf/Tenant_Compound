@@ -1,14 +1,4 @@
-/Connect.class
-/EnterData$1.class
-/EnterData$2.class
-/EnterData$3.class
-/EnterData.class
-/Login$1.class
-/Login$2.class
-/Login.class
-/backend/
-/database/
-/gaster_list$1.class
-/gaster_list$2.class
-/gaster_list.class
 /ui/
+/test/
+/database/
+/backend/

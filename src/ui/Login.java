@@ -34,6 +34,7 @@ public class Login extends JFrame {
 				try {
 					Login frame = new Login();
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,11 +53,11 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblAnvndarnamn = new JLabel("Användarnamn");
+		JLabel lblAnvndarnamn = new JLabel("Anv\u00E4ndarnamn");
 		lblAnvndarnamn.setBounds(59, 91, 127, 16);
 		contentPane.add(lblAnvndarnamn);
 
-		JLabel lblLsenord = new JLabel("Lösenord");
+		JLabel lblLsenord = new JLabel("L\u00F6senord");
 		lblLsenord.setBounds(59, 140, 61, 16);
 		contentPane.add(lblLsenord);
 
@@ -97,13 +98,14 @@ public class Login extends JFrame {
 					}
 
 				} catch (Exception e2) {
-					System.out.println();
+					e2.printStackTrace();
 					JOptionPane.showMessageDialog(null, "Det gick inte att koppla");
 
 				}
 			}
 		});
-		btnLoggaIn.setBounds(189, 195, 117, 29);
+		rootPane.setDefaultButton(btnLoggaIn);
+		btnLoggaIn.setBounds(176, 194, 130, 29);
 		contentPane.add(btnLoggaIn);
 
 	}
