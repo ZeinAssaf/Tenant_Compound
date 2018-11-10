@@ -3,11 +3,13 @@ package backend;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import database.Connect;
 
@@ -40,6 +42,7 @@ public class Server {
 				System.out.println(username + " " + password);
 
 			}
+			String btnPressed = "";
 			while (true) {
 				socket = server.accept();
 				// Write to users
@@ -49,18 +52,32 @@ public class Server {
 				// Read information from users
 				InputStreamReader input = new InputStreamReader(socket.getInputStream());
 				BufferedReader reader = new BufferedReader(input);
+				btnPressed = reader.readLine();
 
-				String firstName = reader.readLine();
-				String lastNmae = reader.readLine();
-				String personalNumber = reader.readLine();
-				String phoneNumber = reader.readLine();
-				String emailAddress = reader.readLine();
-				String apartmentNumber = reader.readLine();
-				System.out.println(firstName + " " + lastNmae + " " + personalNumber + " " + phoneNumber + " "
-						+ emailAddress + " " + emailAddress + " " + apartmentNumber);
-				String registered = connect.registerGuest(firstName, lastNmae, personalNumber, phoneNumber,
-						emailAddress, apartmentNumber, con);
-				writer.println(registered);
+				switch (btnPressed) {
+				case "spara":
+					String firstName = reader.readLine();
+					String lastNmae = reader.readLine();
+					String personalNumber = reader.readLine();
+					String phoneNumber = reader.readLine();
+					String emailAddress = reader.readLine();
+					String apartmentNumber = reader.readLine();
+					System.out.println(firstName + " " + lastNmae + " " + personalNumber + " " + phoneNumber + " "
+							+ emailAddress + " " + emailAddress + " " + apartmentNumber);
+					String registered = connect.registerGuest(firstName, lastNmae, personalNumber, phoneNumber,
+							emailAddress, apartmentNumber, con);
+					writer.println(registered);
+					break;
+				case "data":
+					String[][] guestsList=new String[7][];
+					guestsList=connect.printGuestsList();
+					ObjectOutputStream objOut=new ObjectOutputStream(socket.getOutputStream());
+					objOut.writeObject(guestsList);
+					break;
+
+				default:
+					break;
+				}
 
 			}
 

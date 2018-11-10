@@ -9,8 +9,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import database.Connect;
-import net.proteanit.sql.DbUtils;
-
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,20 +16,18 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 
+@SuppressWarnings("unchecked")
 public class EnterData extends JFrame {
 
 	private JPanel mainframe;
@@ -149,19 +145,19 @@ public class EnterData extends JFrame {
 		JButton btnSpara = new JButton("Spara");
 		btnSpara.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try (
-						Socket socket = new Socket("localhost", 2277);
+				try (Socket socket = new Socket("localhost", 2277);
 						OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
 						PrintWriter writer = new PrintWriter(out, true);
 						InputStreamReader input = new InputStreamReader(socket.getInputStream());
 						BufferedReader reader = new BufferedReader(input);) {
+					writer.println("spara");
 					writer.println(firstName.getText());
 					writer.println(lastName.getText());
 					writer.println(personNumber.getText());
 					writer.println(phoneNumber.getText());
 					writer.println(email.getText());
 					writer.println(apartmentNumber.getText());
-					String response=reader.readLine();
+					String response = reader.readLine();
 					if (response.equals("ok")) {
 						JOptionPane.showMessageDialog(null, "G‰sten ‰r registrerad");
 						firstName.setText("");
@@ -170,14 +166,12 @@ public class EnterData extends JFrame {
 						phoneNumber.setText("");
 						email.setText("");
 						apartmentNumber.setText("");
-					}
-					else {
+					} else {
 						JOptionPane.showMessageDialog(null, "NÂgot gick fel");
 					}
-					
 
 				} catch (Exception e2) {
-					// TODO: handle exception
+					e2.printStackTrace();
 				}
 
 			}
@@ -192,21 +186,32 @@ public class EnterData extends JFrame {
 		table_1 = new JTable();
 		scrollPane.setViewportView(table_1);
 
-		JButton btnSkrivUtHyresgster = new JButton("Skriv ut hyresg√§ster");
+		JButton btnSkrivUtHyresgster = new JButton("Skriv ut hyresg‰ster");
+
 		btnSkrivUtHyresgster.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try (Socket socket = new Socket("localhost", 2277);
+						OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
+						PrintWriter writer = new PrintWriter(out, true);) {
+					writer.println("data");
+					ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+					Object resp = inputStream.readObject();
 
-				String query = "select * from hyresgaster";
-				try {
+					String[][] guestsList = (String[][]) resp;
+					/*
+					for (ArrayList<String> guest : guestsList) {
+						for (String value : guest) {
+							System.out.println(value);
+						}
+					}*/
 
-					Connection conn = Connect.getConnection();
-					PreparedStatement pst = conn.prepareStatement(query);
-					ResultSet rs = pst.executeQuery();
-					table_1.setModel(DbUtils.resultSetToTableModel(rs));
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					GuestsList guestTable = new GuestsList(guestsList);
+					guestTable.setVisible(true);
+
+				} catch (Exception e2) {
+					e2.printStackTrace();
 				}
+
 			}
 		});
 		btnSkrivUtHyresgster.setBounds(696, 60, 184, 29);
