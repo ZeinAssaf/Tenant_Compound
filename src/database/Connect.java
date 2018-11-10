@@ -8,7 +8,7 @@ public class Connect {
 	static final String database = "OurHotel";
 	static final String timezoneFix = "?useLegacyDatetimeCode=false&serverTimezone=Europe/Stockholm";
 	static final String password = "asdasd";
-	private Connection con = null;
+	
 
 	public static Connection getConnection() {
 
