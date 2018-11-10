@@ -1,0 +1,160 @@
+create table apartments(
+id int not null auto_increment primary key,
+size double,
+rooms int,
+rent double,
+balcony bool,
+floor int,
+address varchar (30),
+postal_code varchar (30),
+city varchar (30)
+
+);
+
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (20, 1, 2730, false, 1 ,'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (40, 2, 4200, false, 1, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (60, 3, 6000, false, 1, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (120, 5, 3000, false, 1, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (20, 1, 2730, true, 2, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (40, 2, 4200, true, 2, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (60, 3, 6000, true, 2, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (120, 5, 11000, true, 2, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (40, 2, 4200, true, 3, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (40, 2, 4200, true, 3, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (60, 3, 6000, true, 3, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (120, 5, 12000, true, 3, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (40, 2, 4200, true, 4, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (40, 2, 4200, true, 4, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (60, 3, 6000, true, 4, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (120, 5, 12000, true, 4, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (40, 2, 4200, true, 5, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (60, 3, 6000, true, 5, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (120, 5, 12000, true, 5, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (40, 2, 4200, true, 6, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (60, 3, 6000, true, 6, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (120, 5, 12000, true, 6, 'hagaviksgatan 2a', '134 67', 'Stockholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, false, 1, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, false, 1, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, false, 1, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, true, 2, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, true, 2, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, true, 2, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, true, 3, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, true, 3, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, true, 4, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (44, 2, 3000, true, 4, 'kattstigen 7', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, false, 1, 'Vikinggatan 12a', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, false, 1, 'Vikinggatan 12a', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, false, 1, 'Vikinggatan 12a', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 2, 'Vikinggatan 12a', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 2, 'Vikinggatan 12a', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 2, 'Vikinggatan 12b', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 2, 'Vikinggatan 12b', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 3, 'Vikinggatan 12b', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 3, 'Vikinggatan 12b', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 3, 'Vikinggatan 12b', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 4, 'Vikinggatan 12b', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 4, 'Vikinggatan 12b', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (82, 3, 6200, true, 4, 'Vikinggatan 12b', '126 24', 'Uppsala');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 1, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, false, 1, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, false, 1, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, false, 1, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 2, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 2, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 2, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 2, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 3, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 3, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 3, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 3, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 4, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 4, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 4, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 4, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 5, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 5, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 5, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 5, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (90, 4, 8000, true, 6, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+insert into apartments (size, rooms, rent, balcony, floor, address, postal_code, city) values (70, 3, 6800, true, 6, 'hagaviksgatan 4', '134 67', 'Katrineholm');
+
+
+
+create table hyresgaster(
+id int not null auto_increment primary key,
+firstName varchar (30),
+lastName varchar (30),
+personNumber varchar (30),
+phone_number varchar (30),
+email varchar (30),
+apartmentsNumber varchar (30)
+);
+
+
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Samuel', 'Nilsson', '760113-6821', '070-333 44 55', 'Samuel_Nilsson@hotmail.com', 1);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Mikael', 'Yttling', '710529-6160', '073-688 88 59', 'MikkeY@hotmail.com', 2);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Sten', 'Stensson', '551230-6570', '073-391 12 21', 'Stensson@gmail.com', 3);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Hans', 'Åkeblom', '680112-7777', '070-978 40 30', 'Hasse_Akeblom@sure.me', 5);
+
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Fredrik', 'Bertilsson', '720111-7823', '070-222 89 14', 'FreBer@hotmail.com', 6);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Lars', 'Larson', '720429-7861', '073-300 82 51', 'Lars_L@hotmail.com', 7);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Ida-Marie', 'Stark', '710830-7872', '073-121 78 66', 'I_M@gmail.com', 9);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Tilde', 'Afmark', '661107-7846', '070-454 72 17', 'Tilde_A@hotmail.com', 4);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Urban', 'Vasa', '671001-7817',  '073-313 19 12', 'Urban_Vasa@hotmail.com', 4);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Valdemar', 'Henemark', '731230-7713', '070-854 09 67', 'Val_Hen@gmail.com', 8);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Kristina', 'Stavman', '710412-7114', '070-976 71 99', 'Kristen@hotmail.com', 8);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Stefan', 'Wennberg', '610201-7809', '070-434 91 81', 'Stefan_Wennberg@work.com', 10);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Gustaf', 'Johansson', '640122-7813', '073-981 77 43', 'Gustaf_Johansson@hotmail.com',12 );
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Vilde', 'Varberg', '620321-7710', '070-983 52 47', 'Vilde_V@hotmail.com', 12);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Rolf', 'Nilsson', '641023-8013', '070-549 99 89', 'Rolf_N@hotmail.com', 12);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Jerry', 'Williams', '681201-7617', '070-341 14 01', 'Jerry_W@gmail.com', 16);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Ture', 'Stenmark', '811211-7017', '070-129 22 00', 'Ture_Stenmark@hotmail.com',16 );
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Greta', 'Ek', '570211-7612', '073-898 32 32', 'Greata_Ek@home.me', 16);
+
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Kalle', 'Johansson', '770911-8913', '070-587 89 12', 'Kalle_J@hotmail.com', 19);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Robert', 'Larson', '820428-8901', '073-322 84 52', 'Robban_L@hotmail.com', 19);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Lisa', 'Öman', '790830-8912', '073-121 22 33', 'Lisa_Öman@gmail.com', 19);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Berit', 'Gramner', '680905-8916', '070-424 74 12', 'Berit_GRamner@hotmail.com', 22);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Hans', 'Sundvall', '591103-8917',  '073-323 84 34', 'Hasse_S@hotmail.com', 22);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Viktor', 'Hansson', '921222-8813', '070-654 32 14', 'Viktory_Hansson@gmail.com', 17);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Eva', 'Andersson', '880421-8214', '070-876 54 56', 'Eva_Andersson@hotmail.com', 15);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Sture', 'Wennberg', '760219-8909', '070-234 67 16', 'Sture_Wennberg@gmail.com', 23);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Jonas', 'Johansson', '770114-8913', '073-181 52 52', 'Jonte_J@hotmail.com', 24);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Viktoria', 'Tillberg', '750322-8810', '070-987 27 15', 'Viktoria_Till@hotmail.com', 25);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Ralf', 'Stoone', '701223-9023', '070-546 09 12', 'Ralf_Stoone@hotmail.com', 26);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Sixten', 'Heikinpeti', '881001-8717', '070-343 11 12', 'Sixten_H@gmail.com', 27);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Kalle', 'Malm', '951111-8117', '070-123 19 12', 'Kalle_Malm@hotmail.com', 28);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Lena', 'Larsson', '670210-8812', '073-898 89 00', 'Lena_L@hotmail.com', 29);
+
+
+
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Sara', 'Rosenkratz', '660101-5432', '070-333 11 11', 'Sara_R@hotmail.com', 30);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Jonas', 'Rosenkratz', '650121-1092', '073-111 33 52', 'Jonas_R@hotmail.com', 31);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Ior', 'Kempe', '770112-8594', '073-321 12 33', 'Ior@gmail.com', 32);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Zara', 'Sundin', '980101-4322', '070-849 74 62', 'Zara_S@hotmail.com', 33);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Katarina', 'Zoolander', '800412-0912',  '073-444 56 56', 'Katarina_Zoo@hotmail.com', 33);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Tyra', 'Kratz', '910212-2345', '070-984 35 15', 'Tyra_Krantz@gmail.com', 34);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Vilma', 'Hansson', '911212-3200', '070-321 33 99', 'Vilma_H@hotmail.com', 34);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Kent', 'Blomqvist', '980122-7711', '070-981 99 76', 'Kent_B@gmail.com', 36);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Jörgen', 'Jarl', '020128-0405', '073-546 44 33', 'Jorgen_Jarl@hotmail.com', 36);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Eva', 'Jarl', '840312-9873', '070-688 84 15', 'Eva_J@hotmail.com', 37);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Kent', 'Sundvall', '881205-0943', '070-590 09 43', 'Kent_S@hotmail.com', 37);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Arne', 'Bandhage', '931010-3232', '070-812 99 12', 'Arne_Bhage@gmail.com', 39);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Lisa', 'Laakso', '831011-0203', '070-913 20 12', 'LisaLaakso@hotmail.com', 39);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Jonathan', 'Hilde', '811203-1222', '073-936 11 99', 'Jonte1234@hotmail.com', 40);
+
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Robert', 'Berggren', '710111-8765', '070-444 11 11', 'Robban_B@hotmail.com', 40);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Mattias', 'Olsson', '760428-6789', '073-222 33 52', 'Mattias_O@hotmail.com', 41);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Sara', 'Larsson', '800212-9182', '073-123 12 33', 'Sara_L@gmail.com', 41);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Darin', 'Holgersson', '910905-6574', '070-777 74 62', 'Darin_H@hotmail.com', 42);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Mona', 'Sundvall', '611103-9283',  '073-565 56 56', 'Mona_Sundvall@hotmail.com', 42);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Sture', 'Mattiasson', '901222-9000', '070-775 35 15', 'Sture_M@gmail.com', 43);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Eva', 'Larsson', '710421-3782', '070-867 33 99', 'Eva_Larsson@hotmail.com', 43);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber)  values ( 'Sten-Sture', 'Krona', '660219-8711', '070-123 99 76', 'Sten_Sture123@gmail.com', 44);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Samuel', 'Geirs', '750114-9999', '073-181 44 33', 'Samule_G_75@hotmail.com', 44);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Rakel', 'Måndotter', '761012-1111', '070-848 84 15', 'Rakel_moon@hotmail.com', 48);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Mia', 'Sundvall', '891203-1245', '070-654 09 43', 'Mia_S@hotmail.com', 50);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Martin', 'En', '911001-1672', '070-888 99 12', 'Martin_En@gmail.com', 51);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Lisa', 'Levander', '841111-8211', '070-235 20 12', 'Lisa_Lev_84@hotmail.com', 60);
+INSERT INTO hyresgaster ( firstName, lastName, personNumber, phone_number, email, apartmentsNumber) values ( 'Katja', 'Jama', '832102-9881', '073-982 11 99', 'Katja_Jama@hotmail.com', 64);
