@@ -1,6 +1,5 @@
 package ui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,7 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import database.Connect;
+import backend.EmptyApartment;
+import backend.Hyresgast;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -20,9 +21,7 @@ import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -30,6 +29,10 @@ import javax.swing.JScrollPane;
 @SuppressWarnings("unchecked")
 public class EnterData extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel mainframe;
 	private JTextField firstName;
 	private JTextField lastName;
@@ -45,7 +48,19 @@ public class EnterData extends JFrame {
 	private JTable table;
 	private JTable table_1;
 	private JScrollPane scrollPane;
-	Connection conn = Connect.getConnection();
+	private String _firstName;
+	private String _lastName;
+	private String _personNumber;
+	private String _phoneNumber;
+	private String _email;
+	private String _apartmentNumber;
+	private int id;
+	private String address;
+	private String postal_code;
+	private String city;
+	private Double size;
+	private int rooms;
+	private Double rent;
 
 	/**
 	 * Launch the application.
@@ -157,8 +172,8 @@ public class EnterData extends JFrame {
 					writer.println(phoneNumber.getText());
 					writer.println(email.getText());
 					writer.println(apartmentNumber.getText());
-					String response = reader.readLine();
-					if (response.equals("ok")) {
+					int response = reader.read();
+					if (response==172) {
 						JOptionPane.showMessageDialog(null, "G‰sten ‰r registrerad");
 						firstName.setText("");
 						lastName.setText("");
@@ -184,56 +199,64 @@ public class EnterData extends JFrame {
 		mainframe.add(scrollPane);
 
 		table_1 = new JTable();
+		;
+		table_1.setBounds(371, 106, 838, 515);
+		mainframe.add(table_1);
 		scrollPane.setViewportView(table_1);
 
-		JButton btnSkrivUtHyresgster = new JButton("Skriv ut hyresg‰ster");
+		JButton btnSkrivUtHyresgster = new JButton("Skriv ut hyresg√§ster");
 
 		btnSkrivUtHyresgster.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try (Socket socket = new Socket("localhost", 2277);
 						OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
 						PrintWriter writer = new PrintWriter(out, true);) {
+
 					writer.println("data");
 					ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-					Object resp = inputStream.readObject();
+					List<Hyresgast> hyresgaster = (List<Hyresgast>) inputStream.readObject();
+					DefaultTableModel model = new DefaultTableModel(new Object[] { _firstName, _lastName, _personNumber,
+							_phoneNumber, _email, _apartmentNumber }, 0);
+					for (Hyresgast gast : hyresgaster) {
+						model.addRow(new Object[] { gast.getFirstName(), gast.getLastName(), gast.getPersonNumber(),
+								gast.getPhone_number(), gast.getEmail(), gast.getApartmentNumber() });
 
-					String[][] guestsList = (String[][]) resp;
-					GuestsList guestTable = new GuestsList(guestsList);
-					guestTable.setVisible(true);
-
+					}
+					table_1.setModel(model);
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
 
 			}
 		});
-		btnSkrivUtHyresgster.setBounds(696, 60, 184, 29);
+		btnSkrivUtHyresgster.setBounds(550, 60, 184, 29);
 		mainframe.add(btnSkrivUtHyresgster);
-		
-		JButton printApartments = new JButton("Skriv ut l\u00E4genheter");
-		printApartments.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
 
+		JButton printApartments = new JButton("Skriv ut l√§genheter");
+		printApartments.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				try (Socket socket = new Socket("localhost", 2277);
 						OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
 						PrintWriter writer = new PrintWriter(out, true);) {
-					writer.println("apartments");
+					writer.println("emptyApartments");
 					ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-					Object resp = inputStream.readObject();
-
-					String[][] apartments = (String[][]) resp;
-					Apartmetns flats = new Apartmetns(apartments);
-					flats.setVisible(true);
-
+					List<EmptyApartment> emptyApartments = (List<EmptyApartment>) inputStream.readObject();
+					DefaultTableModel model = new DefaultTableModel(
+							new Object[] { id, address, postal_code, city, size, rooms, rent }, 0);
+					for (EmptyApartment empty : emptyApartments) {
+						model.addRow(new Object[] { empty.getId(), empty.getAddress(), empty.getPostal_code(),
+								empty.getCity(), empty.getSize(), empty.getRooms(), empty.getRent() });
+					}
+					System.out.println("pos13");
+					table_1.setModel(model);
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
-
-			
 			}
 		});
-		printApartments.setBounds(924, 60, 184, 29);
+		printApartments.setBounds(800, 60, 184, 29);
 		mainframe.add(printApartments);
+		rootPane.setDefaultButton(btnSpara);
 
 	}
 }

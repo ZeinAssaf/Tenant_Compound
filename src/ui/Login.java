@@ -73,22 +73,19 @@ public class Login extends JFrame {
 		JButton btnLoggaIn = new JButton("Logga in");
 		btnLoggaIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Den här är try with resources, det betyder att alla de här tre stängs av
-				// sägsjälva när vi är klara med dem
+				//try with resources where all the streams get closed automatically
 				try (Socket socket = new Socket("localhost", 2277);
 						OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
 						PrintWriter writer = new PrintWriter(out, true);
 
 						InputStreamReader input = new InputStreamReader(socket.getInputStream());
 						BufferedReader reader = new BufferedReader(input)) {
-					// Här skickar vi datan till servern
 					writer.println(username.getText());
 					writer.println(passwordField.getPassword());
 
-					// här tar vi svaret från server
 					String state = reader.readLine();
-					// om svaret är 1 betyder det att informationen som användaren skrev är rätt och
-					// då stängs login vyn och öppnar EnterData vyn
+					
+					//If the state is 1 it means the user has entered correct credentials
 					if (state.equals("1")) {
 						Login.this.dispose();
 						EnterData enterDataView = new EnterData();

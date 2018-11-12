@@ -10,87 +10,73 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.List;
 
 import database.Connect;
 
 public class Server {
 
-	public static void main(String[] args) {
-		try {
-			ServerSocket server = new ServerSocket(2277);
+	public static void main(String[] args) throws Exception {
+		try (ServerSocket server = new ServerSocket(2277); Connection con = Connect.getConnection();) {
 			System.out.println("server is running");
 			Socket socket;
-			int state = Integer.MIN_VALUE;
 			Connect connect = new Connect();
-			Connection con = Connect.getConnection();
+			int state = Integer.MIN_VALUE;
+
+			// This while loop listens to the LoginView
 			while (state != 1) {
 				socket = server.accept();
-				// Write to users
 				OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
 				PrintWriter writer = new PrintWriter(out, true);
 
-				// Read information from users
 				InputStreamReader input = new InputStreamReader(socket.getInputStream());
 				BufferedReader reader = new BufferedReader(input);
 
-				// Här Servern tar emot datan från Login klassen
 				String username = reader.readLine();
 				String password = reader.readLine();
 				state = connect.loginAdmin(username, password, con);
 				writer.println(Integer.toString(state));
-				// Den här kan vi ta bort senare men den är när man testar
-				System.out.println(username + " " + password);
-
 			}
 			String btnPressed = "";
+			// This while loop listens to the EnterData view
 			while (true) {
 				socket = server.accept();
-				// Write to users
+
 				OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
 				PrintWriter writer = new PrintWriter(out, true);
 
-				// Read information from users
 				InputStreamReader input = new InputStreamReader(socket.getInputStream());
 				BufferedReader reader = new BufferedReader(input);
 				btnPressed = reader.readLine();
-				ObjectOutputStream objOut=new ObjectOutputStream(socket.getOutputStream());
+				ObjectOutputStream objOut = new ObjectOutputStream(socket.getOutputStream());
 
+				// Switch statement decides to do when when a certain button is pressed
 				switch (btnPressed) {
 				case "spara":
 					String firstName = reader.readLine();
-					String lastNmae = reader.readLine();
+					String lastName = reader.readLine();
 					String personalNumber = reader.readLine();
 					String phoneNumber = reader.readLine();
 					String emailAddress = reader.readLine();
 					String apartmentNumber = reader.readLine();
-					System.out.println(firstName + " " + lastNmae + " " + personalNumber + " " + phoneNumber + " "
-							+ emailAddress + " " + emailAddress + " " + apartmentNumber);
-					String registered = connect.registerGuest(firstName, lastNmae, personalNumber, phoneNumber,
+					int registered = connect.registerGuest(firstName, lastName, personalNumber, phoneNumber,
 							emailAddress, apartmentNumber, con);
 					writer.println(registered);
+					// TODO remove
+					System.out.println(registered);
 					break;
 				case "data":
-					String[][] guestsList=new String[7][10];
-					guestsList=connect.printGuestsList();
-					objOut.writeObject(guestsList);
+					List<Hyresgast> hyresgaster = connect.getHyresgaster(con);
+					objOut.writeObject(hyresgaster);
 					break;
-				case "apartments":
-					String[][] apartments=new String[7][10];
-					apartments=connect.printApartments();
-					objOut.writeObject(apartments);
-					break;
-
-				default:
+				case "emptyApartments":
+					List<EmptyApartment> emptyapartments = (List<EmptyApartment>) connect.getEmptyapartments(con);
+					objOut.writeObject(emptyapartments);
 					break;
 				}
-
 			}
-
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
-
 }
