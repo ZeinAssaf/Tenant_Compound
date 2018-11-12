@@ -48,19 +48,19 @@ public class EnterData extends JFrame {
 	private JTable table;
 	private JTable table_1;
 	private JScrollPane scrollPane;
-	private String _firstName;
-	private String _lastName;
-	private String _personNumber;
-	private String _phoneNumber;
-	private String _email;
-	private String _apartmentNumber;
-	private int id;
-	private String address;
-	private String postal_code;
-	private String city;
-	private Double size;
-	private int rooms;
-	private Double rent;
+	private String _firstName="förnamn";
+	private String _lastName="efternamn";
+	private String _personNumber="personnummr";
+	private String _phoneNumber="telefonnummer";
+	private String _email="email";
+	private String _apartmentNumber="lägenhetsnummer";
+	private String id="id";
+	private String address="Address";
+	private String postal_code="postnummer";
+	private String city="Stad";
+	private String size="storlek";
+	private String rooms="rum";
+	private String rent="hyra";
 
 	/**
 	 * Launch the application.
@@ -202,6 +202,7 @@ public class EnterData extends JFrame {
 		;
 		table_1.setBounds(371, 106, 838, 515);
 		mainframe.add(table_1);
+		
 		scrollPane.setViewportView(table_1);
 
 		JButton btnSkrivUtHyresgster = new JButton("Skriv ut hyresgÃ¤ster");
@@ -242,12 +243,11 @@ public class EnterData extends JFrame {
 					ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 					List<EmptyApartment> emptyApartments = (List<EmptyApartment>) inputStream.readObject();
 					DefaultTableModel model = new DefaultTableModel(
-							new Object[] { id, address, postal_code, city, size, rooms, rent }, 0);
+							new Object[] { id, address, postal_code, city, size, rooms, rent },0);
 					for (EmptyApartment empty : emptyApartments) {
 						model.addRow(new Object[] { empty.getId(), empty.getAddress(), empty.getPostal_code(),
 								empty.getCity(), empty.getSize(), empty.getRooms(), empty.getRent() });
 					}
-					System.out.println("pos13");
 					table_1.setModel(model);
 				} catch (Exception e2) {
 					e2.printStackTrace();

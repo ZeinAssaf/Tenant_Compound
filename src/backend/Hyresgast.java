@@ -21,16 +21,6 @@ public class Hyresgast implements Serializable {
 		this.email = email;
 		this.apartmentNumber = apartmentNumber;
 	}
-	public Hyresgast(String firstName, String lastName, String personNumber, String phone_number, String email,
-			String apartmentNumber) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.personNumber = personNumber;
-		this.phone_number = phone_number;
-		this.email = email;
-		this.apartmentNumber = apartmentNumber;
-	}
 	public int getId() {
 		return id;
 	}

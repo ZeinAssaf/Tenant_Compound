@@ -11,7 +11,7 @@ public class Connect {
 	static final String connString = "jdbc:mysql://localhost:3306/";
 	static final String database = "OurHotel";
 	static final String timezoneFix = "?useLegacyDatetimeCode=false&serverTimezone=Europe/Stockholm";
-	static final String password = "Happy4sure";
+	static final String password = "asdasd";
 
 	// Create connection method
 	public static Connection getConnection() {

@@ -27,16 +27,6 @@ public class EmptyApartment implements Serializable {
 		this.rooms = rooms;
 		this.rent = rent;
 	}
-	public EmptyApartment(String address, String postal_code, String city, Double size, int rooms, Double rent) {
-		super();
-		this.address = address;
-		this.postal_code = postal_code;
-		this.city = city;
-		this.size = size;
-		this.rooms = rooms;
-		this.rent = rent;
-	}
-	
 	
 	public int getId() {
 		return id;
